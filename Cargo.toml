@@ -1,0 +1,29 @@
+[package]
+name = "MD-Reader"
+version = "0.1.0"
+authors = ["bakaleme <bakaleme@proton.me>"]
+edition = "2021"
+
+[dependencies]
+dioxus = { version = "0.7.6", features = ["router"] }
+dark-light = "2.0.0"
+tokio = { version = "1.52.1", features = ["fs", "rt"] }
+pulldown-cmark = "0.13.3"
+rfd = "0.17.2"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[features]
+default = ["desktop"]
+web = ["dioxus/web"]
+desktop = ["dioxus/desktop"]
+mobile = ["dioxus/mobile"]
+server = ["dioxus/server"]
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true
+panic = "abort"
+
+[profile.dev]
+opt-level = 1
