@@ -19,3 +19,10 @@ script = []
 # Javascript code file
 # serve: [dev-server] only
 script = []
+
+[bundle]
+identifier = "com.bakaleme.md-reader"
+publisher = "bakalemeHQ"
+
+[bundle.linux]
+targets = ["appimage"]
